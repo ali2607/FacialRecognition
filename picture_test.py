@@ -13,8 +13,7 @@ faces = face_cascade.detectMultiScale(gray, minNeighbors= 5)
 for (x, y, w, h) in faces:
     face = gray[y:y+h, x:x+w]
     resizedface = cv2.resize(face, (48, 48))
-    normalizedface = resizedface/255.0
-    reshapedface = np.reshape(normalizedface, (1, 48, 48, 1))
+    reshapedface = np.reshape(resizedface, (1, 48, 48, 1))
     emotionResult = EmotionModel.predict(reshapedface)
     label = np.argmax(emotionResult)
     cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 255, 0), 2)

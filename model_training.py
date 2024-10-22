@@ -100,3 +100,4 @@ history = model.fit(
 
 # Save the trained model
 model.save('emotion_detection.keras')
+

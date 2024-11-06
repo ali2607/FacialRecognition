@@ -30,8 +30,6 @@ print("Class Names:", class_names)
 
 # Evaluate the model on the test dataset
 test_loss, test_acc = model.evaluate(test_dataset)
-print('Test Loss:', test_loss)
-print('Test Accuracy:', test_acc)
 
 
 # Initialize lists to store true and predicted labels
@@ -67,12 +65,16 @@ sns.heatmap(
     yticklabels=class_names,
     cmap='Blues'
 )
+# Print a detailed classification report
+print('Test Loss:', test_loss)
+print('Test Accuracy:', test_acc)
+
+report = classification_report(y_true, y_pred, target_names=class_names)
+print("Classification Report:\n", report)
+
 plt.title('Confusion Matrix')
 plt.xlabel('Predicted Emotion')
 plt.ylabel('True Emotion')
 plt.show()
 
 
-# Print a detailed classification report
-report = classification_report(y_true, y_pred, target_names=class_names)
-print("Classification Report:\n", report)

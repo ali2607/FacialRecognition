@@ -18,7 +18,7 @@ test_dataset = image_dataset_from_directory(
     labels='inferred',
     label_mode='categorical',
     color_mode='grayscale',
-    batch_size=32,
+    batch_size=64,
     image_size=(48, 48),
     shuffle=False
 )
